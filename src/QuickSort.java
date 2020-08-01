@@ -6,7 +6,7 @@ public class QuickSort {
             System.out.print(arr[i] + " ");
         }
 
-        quickSort(0 , arr.length -1 );
+        quickSort(0, arr.length - 1);
 
         System.out.println();
         for (int i = 0; i < arr.length; i++) {
@@ -14,14 +14,11 @@ public class QuickSort {
         }
     }
 
-
     public static void quickSort(int left, int right) {
-
         int i = left;
         int j = right;
         int tmp;
         int cur = arr[(left + right) / 2];
-
 
         while (i <= j) {
             while ((arr[i] < cur) && (i < right)) i++;
@@ -34,10 +31,8 @@ public class QuickSort {
                 i++;
                 j--;
             }
-
         }
         if (i < right) quickSort(i, right);
         if (left < j) quickSort(left, j);
     }
-
 }
