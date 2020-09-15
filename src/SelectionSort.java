@@ -1,45 +1,28 @@
+import java.util.Arrays;
+
 public class SelectionSort {
-
-    static int[] arr = {10, 1, 0, 4, 2, 9};
-
     public static void main(String[] args) {
-        //Создаем массив
-
+        //создаем массив
+        int[] arr = {10, 1, 0, 4, 2, 9};
         //выводим неотсотированный массив
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-
-
+        System.out.println(Arrays.toString(arr));
         int first;
         int second;
         int min;
-
-        for (first = 0; first < arr.length - 1; first++) {
+        for (first = 0; first < arr.length; first++) {
+            //указываем что first элемент минимальный
             min = first;
-
+            //сравниваем минимальный элемент в цикле
             for (second = first + 1; second < arr.length; second++) {
-
-                min = second;
-
-                swap(second, min);
+                if (arr[second] < arr[min])
+                    min = second;
             }
+            // поменять местами минимальные значения (новое со старым)
+            int temp = arr[first];
+            arr[first] = arr[min];
+            arr[min] = temp;
         }
-
-        System.out.println();
         //выводим отсотированный массив
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-
+        System.out.println(Arrays.toString(arr));
     }
-
-
-    public static void swap(int min, int second) {
-        int tmp = arr[second];
-        arr[min] = arr[second];
-        arr[second] = tmp;
-    }
-
 }
-
